@@ -1,7 +1,7 @@
 ﻿
 using ConsoleAppSubmission2.Interfaces;
 using ConsoleAppSubmission2.Models;
-using System;
+
 
 namespace ConsoleAppSubmission2.Services;
 
@@ -64,7 +64,7 @@ public class MenuService : IMenuService
     }
     private void ShowCreateNewContactMenu()
     {
-        IContact contact = new Contact();
+        Contact contact = new Contact();
         Console.Clear();
 
         Console.WriteLine("Create a new contact");
@@ -103,9 +103,9 @@ public class MenuService : IMenuService
         Console.Write("Please enter an E-mail address to search for: ");
         var email = Console.ReadLine()!;
 
-        var res = _contactService.GetContact(email);
+        var contact = _contactService.GetContact(email);
 
-        if (res is IContact contact)
+        if (contact != null)
         {
             Console.Clear();
             Console.WriteLine($"Contact found: \n {contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
@@ -114,6 +114,7 @@ public class MenuService : IMenuService
         {
             Console.WriteLine("Contact not found, please try again.");
         }
+
         Console.WriteLine();
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
@@ -126,7 +127,7 @@ public class MenuService : IMenuService
 
         var res = _contactService.GetContacts();
         
-        if (res is List<IContact> listOfContacts)
+        if (res is List<Contact> listOfContacts)
         {
             if (!listOfContacts.Any())
             {
@@ -158,10 +159,10 @@ public class MenuService : IMenuService
 
         if (option.Equals("y", StringComparison.CurrentCultureIgnoreCase))
         {
-            var res = _contactService.DeleteContact(email);
+            var contactDelete = _contactService.DeleteContact(email);
 
-            
-            if (res is IContact contact)
+
+            if (contactDelete)
             {
                 Console.Clear();
                 Console.WriteLine("Contact successfully deleted!");
@@ -169,7 +170,7 @@ public class MenuService : IMenuService
             else
             {
                 Console.WriteLine("Contact not found, please try again.");
-            }       
+            }
         }
         Console.WriteLine();
         Console.WriteLine("Press any key to continue.");

@@ -1,8 +1,9 @@
-﻿using System.Diagnostics;
+﻿using ConsoleAppSubmission2.Interfaces;
+using System.Diagnostics;
 
 namespace ConsoleAppSubmission2.Services
 {
-    public class FileService(string filePath) : Interfaces.IFileService
+    public class FileService(string filePath) : IFileService
     {
         private readonly string _filePath = filePath;
 
@@ -28,21 +29,12 @@ namespace ConsoleAppSubmission2.Services
             {
                 if (File.Exists(_filePath))
                 {
-                    using (var sr = new StreamReader(_filePath))
-                    {
-                        return sr.ReadToEnd();
-                    }
-                }
-                else
-                {
-                    return null!;
-                }
+                    using var sr = new StreamReader(_filePath);
+                    return sr.ReadToEnd();
+                }  
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                return null!;
-            }
+            catch (Exception ex){ Debug.WriteLine(ex.Message); }
+            return null!;
         }
     }
 }

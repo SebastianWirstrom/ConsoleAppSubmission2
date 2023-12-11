@@ -1,9 +1,11 @@
-﻿namespace ConsoleAppSubmission2.Interfaces;
+﻿using ConsoleAppSubmission2.Models;
+
+namespace ConsoleAppSubmission2.Interfaces;
 
 public interface IContactService
 {
-    void CreateNewContact(IContact contact);
-    IEnumerable<IContact> GetContact(string email);
-    IEnumerable<IContact> GetContacts();
-    IEnumerable<IContact> DeleteContact(string email);
+    void CreateNewContact(Contact contact);
+    Contact GetContact(string email);
+    IEnumerable<Contact> GetContacts();
+    bool DeleteContact(string email);
 }
