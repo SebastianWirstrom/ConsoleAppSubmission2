@@ -19,8 +19,8 @@ public class MenuService : IMenuService
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("### MAIN MENU ###");
-            Console.WriteLine();
+            Console.WriteLine("    Main Menu    ");
+            Console.WriteLine("____________________\n");
             Console.WriteLine("1. Create new contact");
             Console.WriteLine("2. Find contact by E-mail");
             Console.WriteLine("3. Show all contacts");
@@ -88,7 +88,7 @@ public class MenuService : IMenuService
         _contactService.CreateNewContact(contact);
 
         Console.Clear();
-        Console.WriteLine($"Your new contact: {contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
+        Console.WriteLine($"Your new contact:\n{contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
 
         Console.WriteLine();
         Console.WriteLine("Press any key to continue.");
@@ -108,7 +108,7 @@ public class MenuService : IMenuService
         if (contact != null)
         {
             Console.Clear();
-            Console.WriteLine($"Contact found: \n {contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
+            Console.WriteLine($"Contact found: \n{contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
         }
         else
         {
@@ -137,7 +137,7 @@ public class MenuService : IMenuService
             {
                 foreach (var contact in listOfContacts)
                 {
-                    Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>, Phone: {contact.Phone}, Address: {contact.StreetAddress}");
+                    Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
                 }
             }
         }
