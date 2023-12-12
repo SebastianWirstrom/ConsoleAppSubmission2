@@ -9,7 +9,7 @@ public class ContactService : IContactService
     private List<Contact> _contacts = [];
     private readonly FileService _fileService = new FileService(@"c:\Projects\contacts.json");
 
-    public void CreateNewContact(Contact contact)
+    public bool CreateNewContact(Contact contact)
     {
         try
         {
@@ -17,16 +17,19 @@ public class ContactService : IContactService
             {
                 _contacts.Add(contact);
                 _fileService.SaveContentToFile(JsonConvert.SerializeObject(_contacts));
+                return true;
             }
             else
             {
                 Console.WriteLine("Contact already exists!");
+                return false;
             }
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
         }
+        return false;
     }
     public Contact GetContact(string email)
     {

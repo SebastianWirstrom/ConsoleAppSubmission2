@@ -1,7 +1,5 @@
-﻿
-using ConsoleAppSubmission2.Interfaces;
+﻿using ConsoleAppSubmission2.Interfaces;
 using ConsoleAppSubmission2.Models;
-
 
 namespace ConsoleAppSubmission2.Services;
 
