@@ -1,5 +1,7 @@
 ﻿namespace ConsoleAppSubmission2.Interfaces;
 
+
+//Interface för menyerna
 public interface IMenuService
 {
     public void ShowMainMenu();

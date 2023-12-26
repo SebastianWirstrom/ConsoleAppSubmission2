@@ -1,7 +1,7 @@
 ﻿using ConsoleAppSubmission2.Interfaces;
 namespace ConsoleAppSubmission2.Models;
 
-
+//kontaktmodellen som använder IContact-interfacet
 public class Contact : IContact
 {
     public string FirstName { get; set; } = null!;

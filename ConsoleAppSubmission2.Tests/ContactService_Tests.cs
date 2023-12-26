@@ -6,9 +6,12 @@ namespace ConsoleAppSubmission2.Tests;
 
 public class ContactService_Tests
 {
+
+    // test för att lägga till en kontakt i listan
     [Fact]
     public void CreateNewContactShould_AddNewCustomerToList_ThenReturnTrue()
     {
+
         // arrange
         Contact contact = new()
         {
@@ -27,9 +30,12 @@ public class ContactService_Tests
         Assert.True(result);
     }
 
+
+    //test för att hämta samtliga kontakter från listan
     [Fact]
     public void GetContactsShould_GetAllContactsFromList_ThenReturnList()
     {
+
         // arrange
         IContactService contactService = new ContactService();
 

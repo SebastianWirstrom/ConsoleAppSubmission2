@@ -2,6 +2,7 @@
 
 namespace ConsoleAppSubmission2.Interfaces;
 
+//Interface för contact service-funktionaliteten
 public interface IContactService
 {
     bool CreateNewContact(Contact contact);

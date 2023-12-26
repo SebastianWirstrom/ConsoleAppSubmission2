@@ -3,6 +3,8 @@ using ConsoleAppSubmission2.Models;
 
 namespace ConsoleAppSubmission2.Services;
 
+
+//Initiering av huvudmenyn
 public interface IMenuService
 {
     void ShowMainMenu();
@@ -10,8 +12,10 @@ public interface IMenuService
 
 public class MenuService : IMenuService
 {
+    //privat fält - instansiering som hanterar inputs
     private readonly IContactService _contactService = new ContactService();
 
+    //Huvudmenyn
     public void ShowMainMenu()
     {
         while (true)
@@ -60,6 +64,8 @@ public class MenuService : IMenuService
             }
         }
     }
+
+    //Skapa ny kontakt-menyn
     private void ShowCreateNewContactMenu()
     {
         Contact contact = new Contact();
@@ -92,6 +98,8 @@ public class MenuService : IMenuService
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }
+
+    //Hämta specifik kontakt-menyn (baserat på email)
     private void ShowGetContactMenu()
     {
         Console.Clear();
@@ -117,6 +125,8 @@ public class MenuService : IMenuService
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }
+
+    //Hämta samtliga kontakter-menyn
     private void ShowGetContactsMenu()
     {
         Console.Clear();
@@ -143,6 +153,8 @@ public class MenuService : IMenuService
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }
+
+    //Ta bort kontakt-menyn
     private void ShowDeleteContactMenu()
     {
         Console.Clear();
@@ -174,6 +186,8 @@ public class MenuService : IMenuService
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }
+
+    //Stäng programmet-menyn
     private void ShowExitApplication()
     {
         Console.Clear();

@@ -1,5 +1,7 @@
 ﻿namespace ConsoleAppSubmission2.Interfaces
 {
+
+    //Interface för kontakt-modellen
     public interface IContact
     {
         string Email { get; set; }

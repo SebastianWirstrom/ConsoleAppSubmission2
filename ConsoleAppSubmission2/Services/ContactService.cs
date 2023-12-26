@@ -6,9 +6,14 @@ namespace ConsoleAppSubmission2.Services;
 
 public class ContactService : IContactService
 {
+    //Lista för att spara kontakter
     private List<Contact> _contacts = [];
+
+    //File service för att hantera och spara ner json-filen med kontaktlistan
     private readonly FileService _fileService = new FileService(@"c:\Projects\contacts.json");
 
+
+    //skapa ny kontakt-method
     public bool CreateNewContact(Contact contact)
     {
         try
@@ -31,6 +36,8 @@ public class ContactService : IContactService
         }
         return false;
     }
+
+    //Hämta specifik kontakt-method
     public Contact GetContact(string email)
     {
         try
@@ -54,6 +61,8 @@ public class ContactService : IContactService
         }
         return _contacts.FirstOrDefault()!;
     }
+
+    //Hämta samtliga kontakter i listan-method
     public IEnumerable<Contact> GetContacts()
     {
         try
@@ -71,6 +80,8 @@ public class ContactService : IContactService
         catch (Exception ex) { Debug.WriteLine(ex.Message); }
         return _contacts;
     }
+
+    //Ta bort kontakt från listan-method
     public bool DeleteContact(string email)
     {
         try
