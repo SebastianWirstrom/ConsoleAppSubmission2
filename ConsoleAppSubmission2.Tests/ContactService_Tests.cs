@@ -7,12 +7,12 @@ namespace ConsoleAppSubmission2.Tests;
 public class ContactService_Tests
 {
 
-    // test för att lägga till en kontakt i listan
+    //Test för att lägga till en kontakt i listan
     [Fact]
     public void CreateNewContactShould_AddNewCustomerToList_ThenReturnTrue()
     {
 
-        // arrange
+        //Arrange
         Contact contact = new()
         {
             FirstName = "FirstName_test",
@@ -23,26 +23,26 @@ public class ContactService_Tests
         };
         IContactService contactService = new ContactService();
 
-        // act
+        //Act
         bool result = contactService.CreateNewContact(contact);
 
-        // assert
+        //Assert
         Assert.True(result);
     }
 
 
-    //test för att hämta samtliga kontakter från listan
+    //Test för att hämta samtliga kontakter från listan
     [Fact]
     public void GetContactsShould_GetAllContactsFromList_ThenReturnList()
     {
 
-        // arrange
+        //Arrange
         IContactService contactService = new ContactService();
 
-        // act
+        //Act
         var result = contactService.GetContacts();
 
-        // assert
+        //Assert
         Assert.NotNull(result);
         Assert.True(result.Any());
     }
